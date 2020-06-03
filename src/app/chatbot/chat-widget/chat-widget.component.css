@@ -77,7 +77,7 @@ img {
   position: relative;
 }
 .msg_send_btn {
-  background: #05728f none repeat scroll 0 0;
+  background: #f8f9fa00 none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
   color: #fff;
@@ -94,6 +94,7 @@ img {
   padding: 0 0 50px 0;
 }
 .msg_history {
-  height: 516px;
+  height: auto;
   overflow-y: auto;
+  margin-bottom: 10px;
 }

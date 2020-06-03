@@ -1,29 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { discardPeriodicTasks } from '@angular/core/testing';
+import { Component, OnInit } from "@angular/core";
+import { discardPeriodicTasks } from "@angular/core/testing";
 
 @Component({
-  selector: 'app-chat-widget',
-  templateUrl: './chat-widget.component.html',
-  styleUrls: ['./chat-widget.component.css']
+  selector: "app-chat-widget",
+  templateUrl: "./chat-widget.component.html",
+  styleUrls: ["./chat-widget.component.css"],
 })
 export class ChatWidgetComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+  conversa: any[] = [];
 
-  conversa:any[] = []
+  inputMsg: string;
 
-  inputMsg:string;
-
-  submit(){
-    if(!this.inputMsg){
+  submit() {
+    if (!this.inputMsg) {
       return;
     }
-    let m = {msg:this.inputMsg,user:"Ipsum",data:Date.now()}
+    let m = { id: 1, msg: this.inputMsg, user: "Gustavo", data: Date.now() };
     this.conversa.push(m);
-    
 
     this.respostaBot(m);
 
@@ -31,20 +28,28 @@ export class ChatWidgetComponent implements OnInit {
   }
 
   delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  async respostaBot(m){ 
+  async respostaBot(m) {
     await this.delay(500);
-    if(m.msg == "Olá"){
-      this.conversa.push({msg:"Olá, como vai você?",user:"Robô",data:Date.now()});
+    if (m.msg == "Olá") {
+      this.conversa.push({
+        id: 2,
+        msg: "Olá, como vai você?",
+        user: "Robô",
+        data: Date.now(),
+      });
       return;
     }
-    if(m.msg == "Qual o seu nome?"){
-      this.conversa.push({msg:"Eu sou a Inteligencia Artificial BIA",user:"BIA",data:Date.now()});
+    if (m.msg == "Qual o seu nome?") {
+      this.conversa.push({
+        id: 2,
+        msg: "Eu sou a Inteligencia Artificial AIB",
+        user: "BIA",
+        data: Date.now(),
+      });
       return;
     }
-
   }
-
 }
