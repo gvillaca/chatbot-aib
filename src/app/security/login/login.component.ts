@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
       if(success.length >= 1 ){
         localStorage.setItem('token','logado');
         this.routing.navigate(['/index']);
+        this.httpController.LoggedIn.next(true);
       }
       else{
         console.log("não existe");
